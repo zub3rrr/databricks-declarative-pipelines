@@ -14,9 +14,9 @@ def load_west_region_sales():
     return spark.read.table("catalog_za.source.sales_west")
 
 @dlt.table(
-    name='combined_sales'
+    name='sales_stg'
 )
-def combined_sales():
+def sales_stg():
     east = spark.read.table("load_east_region_sales")
     west = spark.read.table("load_west_region_sales")
     combined = east.unionByName(west)
