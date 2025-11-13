@@ -1,15 +1,21 @@
 import dlt
 from pyspark.sql.functions import *
 
+sales_expectation = {
+    "rule-1":"sales_id IS NOT NULL"
+}
+
 @dlt.table(
     name='load_east_region_sales'
 )
+@dlt.expect_all_or_fail(sales_expectation)
 def load_east_region_sales():
     return spark.read.table("catalog_za.source.sales_east")
 
 @dlt.table(
     name='load_west_region_sales'
 )
+@dlt.expect_all_or_fail(sales_expectation)
 def load_west_region_sales():
     return spark.read.table("catalog_za.source.sales_west")
 
@@ -54,5 +60,17 @@ Because:
     Streaming tables maintain metadata to support incremental ingestion, deduplication, and exactly-once processing.
 
     So, if you’re using a batch table (via dlt.create_table()), there’s no streaming state or incremental tracking, and therefore, @dlt.append_flow() isn’t supported — it has nothing to “append to” in a streaming sense.
+
+Expectation Implementation in Case of Append Flow;
+For-Eg:
+dlt.create_table( name = 'append_sales' , expect_all_or_fail = rules_dict) 
+
+@dlt.append_flow(target = 'append_sales') 
+def load_east_region_sales(): 
+    return spark.read.table("catalog_za.source.sales_east") 
+    
+@dlt.append_flow(target= = 'append_sales') 
+def load_west_region_sales(): 
+    return spark.read.table("catalog_za.source.sales_west")
 
 """
