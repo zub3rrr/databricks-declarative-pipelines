@@ -2,13 +2,13 @@ import dlt
 from pyspark.sql.functions import *
 
 dlt.create_streaming_table(
-    name="products")
+    name="customers")
 
 
 dlt.create_auto_cdc_flow(
-    target="products",
-    source="transformed_product",
-    keys=["product_id"],
+    target="customers",
+    source="transformed_customer",
+    keys=["customer_id"],
     sequence_by="last_updated",
     stored_as_scd_type=2
 )
