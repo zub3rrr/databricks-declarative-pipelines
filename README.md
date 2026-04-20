@@ -4,6 +4,8 @@
 This project implements an **end-to-end Sales Data Warehouse** using **Lakeflow Spark Declarative Pipelines (SDP)** on Databricks. The solution follows the **Medallion Architecture (Bronze → Silver → Gold)** to process regional sales data, manage dimensions, and deliver analytics-ready business insights.
 
 ---
+## Lakeflow 
+https://github.com/user-attachments/assets/0d055846-9bf3-4d1e-8d0e-689f6b7b3ec3
 
 ## 🏗️ Architecture Overview
 
