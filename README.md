@@ -5,7 +5,7 @@ This project implements an **end-to-end Sales Data Warehouse** using **Lakeflow 
 
 ---
 ## Lakeflow 
-<img width="400" height="246" alt="Image" src="https://github.com/user-attachments/assets/c515f102-6fb3-4ac8-af53-c503302e8ec8" />
+https://github.com/user-attachments/assets/0d055846-9bf3-4d1e-8d0e-689f6b7b3ec3
 
 ## 🏗️ Architecture Overview
 
